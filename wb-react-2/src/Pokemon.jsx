@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+
 
 const Pokemon = (props) => {
   const [pokemon, setPokemon] = useState([])
-  const [word, setWord] = useState('')
+  const [numPokemon, setNumPokemon] = useState(props.num)
 
 //   useEffect(() => {
 //     axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${props.num}`)
@@ -17,25 +17,31 @@ const Pokemon = (props) => {
   useEffect(() => {
     const getPokemon = async () => {
         let arrayOfPokemon = await axios.get(
-            `https://pokeapi.co/api/v2/pokemon?limit=${props.num}`
+            `https://pokeapi.co/api/v2/pokemon?limit=${numPokemon}`
             );
 
         setPokemon(arrayOfPokemon.data.results);
         };
 
         getPokemon();
-  }, []);
+  }, [numPokemon]);
 
-  const pokemonList = pokemon.map((poke) => 
-  <li key={poke.name}>{poke.name}</li>)
-  console.log(word)
+  const pokemonList = pokemon.map((poke) => (
+  <li key={poke.name}>{poke.name}</li>
+  ));
 
 
   return(
+  
+    <>
+    <input type="number" onChange={(e) => {
+     setNumPokemon(e.target.value)}
+        } />
+
     <ul>
-        <input type="text" value={word} onChange={(e) => setWord(e.target.value)}/>
         {pokemonList}
     </ul>
+    </>
   )
 }
 
