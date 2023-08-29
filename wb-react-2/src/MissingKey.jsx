@@ -1,12 +1,30 @@
 import { useState } from 'react';
 
-export default function MissingKey() {
+const MissingKey = () => {
   const [emojis, setEmojis] = useState([
     { id: 1, emoji: '😁' },
     { id: 2, emoji: '😘' },
     { id: 3, emoji: '🤪' },
     { id: 4, emoji: '🤗' },
   ]);
+
+  const deleteEmoji = (emojiId) => {
+    const updatedEmojiList = emojis.filter((emoji) => emoji.id !== emojiId)
+    setEmojis(updatedEmojiList)
+  }
+
+  const emojiList = emojis.map((emoji) => (
+    <li key={emoji.id} className="emoji-item">
+      {emoji.emoji}
+      <select>
+        <option>Bad</option>
+        <option>Okay</option>
+        <option>Good</option>
+      </select>
+      <button onClick={() => deleteEmoji(emoji.id)}>Delete</button>
+    </li>
+    )
+  )
 
 
 
@@ -17,3 +35,6 @@ export default function MissingKey() {
     </div>
   );
 }
+
+
+export default MissingKey

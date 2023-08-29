@@ -9,19 +9,21 @@ const MovieList = () =>  {
 
   // console.log(inputValue)
 
-  const movieDisplay = movies.map((movie) => <h5 key={movie}>{movie}</h5>)
+  const moviesDisplay = movies.map((movie) => <h5 key={movie}>{movie}</h5>)
 
 
   return(
     <div>
       <h2>Movie List</h2>
+      {moviesDisplay}
 
 
       <input value={inputValue} onChange={(e)=> setInputValue(e.target.value) } type="text" />
 
       <button onClick={() => {
       let newMoviesArr = [...movies, inputValue]
-      setMovies[newMoviesArr]
+      setMovies(newMoviesArr)
+      
       }}>
         Add Movie
       </button>
