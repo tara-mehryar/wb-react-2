@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-export default function Pokemon(props) {
+const Pokemon = (props) => {
   
 }
+
+export default Pokemon
