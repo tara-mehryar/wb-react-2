@@ -23,7 +23,7 @@ const MovieList = () =>  {
       <button onClick={() => {
       let newMoviesArr = [...movies, inputValue]
       setMovies(newMoviesArr)
-      
+      setInputValue('')
       }}>
         Add Movie
       </button>
