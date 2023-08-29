@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-// import Counters from './Counters.jsx';
+import Counters from './Counters.jsx';
 import Die from './Die.jsx';
 import Layout from './Layout.jsx';
 import MissingKey from './MissingKey.jsx';
@@ -29,7 +29,7 @@ export default function App() {
           />
           <Route path="/movies" element={<MovieList />} />
           <Route path="/missing-key" element={<MissingKey />} />
-          {/* <Route path="/counters" element={<Counters />} /> */}
+          <Route path="/counters" element={<Counters />} />
           {/* <Route path="/pokemon" element={<Pokemon num={10} />} />  */}
           </Route>
       </Routes>
