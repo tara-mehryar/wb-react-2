@@ -8,23 +8,7 @@ export default function MissingKey() {
     { id: 4, emoji: '🤗' },
   ]);
 
-  const deleteEmoji = (emojiId) => {
-    const updatedEmojis = emojis.filter((emoji) => emoji.id !== emojiId);
-    setEmojis(updatedEmojis);
-  };
 
-  // Key is missing! Check out what happens as a result!
-  const emojiList = emojis.map((emoji) => (
-    <li className="emoji-item">
-      {emoji.emoji}
-      <select>
-        <option>Bad</option>
-        <option>Okay</option>
-        <option>Very good</option>
-      </select>
-      <button onClick={() => deleteEmoji(emoji.id)}>Delete</button>
-    </li>
-  ));
 
   return (
     <div>
