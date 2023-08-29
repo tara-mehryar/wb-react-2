@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Pokemon = (props) => {
   const [pokemon, setPokemon] = useState([])
+  const [word, setWord] = useState('')
 
   useEffect(() => {
     axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${props.num}`)
@@ -13,11 +14,14 @@ const Pokemon = (props) => {
         })
   }, [props.num])
 
-  const pokemonList = pokemon.map((poke) => <li>{poke.name}</li>)
+  const pokemonList = pokemon.map((poke) => 
+  <li key={poke.name}>{poke.name}</li>)
+  console.log(word)
 
 
   return(
     <ul>
+        <input type="text" value={word} onChange={(e) => setWord(e.target.value)}/>
         {pokemonList}
     </ul>
   )
